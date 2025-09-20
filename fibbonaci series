@@ -1,0 +1,17 @@
+import java.util.*;
+public class Main
+{
+    public static int fibbo(int num)
+    {
+        if(num==0 || num==1)
+        {
+            return num;
+        }
+        return fibbo(num-1)+fibbo(num-2);
+    }
+	public static void main(String[] args) {
+	    int num=3;
+	    int ans=fibbo(num);
+	    System.out.println(ans);
+	}
+}
