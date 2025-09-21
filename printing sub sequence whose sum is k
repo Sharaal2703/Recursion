@@ -1,0 +1,32 @@
+import java .util.*;
+public class Main
+{
+    public static void printSum(int index,int arr[],Stack <Integer> li,int len,int sum,int ini_sum)
+    {
+        if(index==len)
+        {
+            if(sum==ini_sum)
+            {
+                System.out.println(li);
+            
+            }
+            return;
+        }
+        li.add(arr[index]);
+        ini_sum=ini_sum+arr[index];
+        printSum(index+1,arr,li,len,sum,ini_sum);
+        li.pop();
+        ini_sum=ini_sum-arr[index];
+        printSum(index+1,arr,li,len,sum,ini_sum);
+    }
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int arr[]={1,2,3,1};
+		int sum=2;
+		int len=arr.length;
+	    Stack<Integer> li=new Stack<Integer>();
+		printSum(0,arr,li,len,sum,0);
+		
+		
+	}
+}
