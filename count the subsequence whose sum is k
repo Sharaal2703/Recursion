@@ -1,0 +1,38 @@
+import java .util.*;
+public class Main
+{
+    public static int printSum(int index,int arr[],Stack <Integer> li,int len,int sum,int ini_sum)
+    {
+        if(index==len)
+        {
+            if(sum==ini_sum)
+            {
+                //System.out.println(li);
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        li.push(arr[index]);
+        ini_sum=ini_sum+arr[index];
+        int l=printSum(index+1,arr,li,len,sum,ini_sum);
+        
+        li.pop();
+        ini_sum=ini_sum-arr[index];
+        int r=printSum(index+1,arr,li,len,sum,ini_sum);
+        
+        return l+r;
+    }
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int arr[]={1,2,3,1};
+		int sum=2;
+		int len=arr.length;
+	    Stack<Integer> li=new Stack<Integer>();
+		System.out.println(printSum(0,arr,li,len,sum,0));
+		
+		
+	}
+}
